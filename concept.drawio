@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-09-21T17:48:01.881Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36" etag="rkQcI-UOBIv0Uvm7n2Gm" version="20.3.3" type="github">
+<mxfile host="app.diagrams.net" modified="2022-09-21T19:11:45.824Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36" etag="XHYR1Bl7kr4OrB-8gLlS" version="20.3.3" type="github">
   <diagram id="ZoijWgZR32y4va5hffM9" name="Page-1">
     <mxGraphModel dx="1006" dy="677" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -89,7 +89,7 @@
           <mxGeometry x="610" y="380" width="50" height="100" as="geometry" />
         </mxCell>
         <mxCell id="94rV8oXowhxHJuVNh93p-17" value="Website live updates via a WebSocket." style="whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;rounded=1;" vertex="1" parent="1">
-          <mxGeometry x="425" y="350" width="120" height="62" as="geometry" />
+          <mxGeometry x="390" y="510" width="120" height="62" as="geometry" />
         </mxCell>
         <mxCell id="94rV8oXowhxHJuVNh93p-18" value="User is subscribed to that sport" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
           <mxGeometry x="575" y="350" width="120" height="60" as="geometry" />
@@ -117,17 +117,10 @@
         <mxCell id="94rV8oXowhxHJuVNh93p-32" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="94rV8oXowhxHJuVNh93p-30" target="94rV8oXowhxHJuVNh93p-19">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="94rV8oXowhxHJuVNh93p-34" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="94rV8oXowhxHJuVNh93p-30" target="94rV8oXowhxHJuVNh93p-17">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="520" y="580" />
-              <mxPoint x="520" y="520" />
-              <mxPoint x="410" y="520" />
-              <mxPoint x="410" y="381" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
         <mxCell id="94rV8oXowhxHJuVNh93p-35" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="94rV8oXowhxHJuVNh93p-30" target="94rV8oXowhxHJuVNh93p-20">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="94rV8oXowhxHJuVNh93p-56" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;fontSize=24;" edge="1" parent="1" source="94rV8oXowhxHJuVNh93p-30" target="94rV8oXowhxHJuVNh93p-17">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="94rV8oXowhxHJuVNh93p-30" value="Admin edits an existing game&#39;s score/settings" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
@@ -141,6 +134,12 @@
         </mxCell>
         <mxCell id="94rV8oXowhxHJuVNh93p-52" value="2. In the future we will use apple&#39;s new&#xa;live score notification feature." style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontSize=12;" vertex="1" parent="94rV8oXowhxHJuVNh93p-50">
           <mxGeometry y="60" width="215" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="94rV8oXowhxHJuVNh93p-55" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;fontSize=24;" edge="1" parent="1" source="94rV8oXowhxHJuVNh93p-54" target="94rV8oXowhxHJuVNh93p-17">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="94rV8oXowhxHJuVNh93p-54" value="Website shows this new game." style="whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="420" y="360" width="120" height="62" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
