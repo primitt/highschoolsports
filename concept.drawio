@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-09-21T19:11:45.824Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36" etag="XHYR1Bl7kr4OrB-8gLlS" version="20.3.3" type="github">
+<mxfile host="app.diagrams.net" modified="2022-09-21T19:12:58.021Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36" etag="bGOpFZPAUSBarmKQVOHM" version="20.3.3" type="github">
   <diagram id="ZoijWgZR32y4va5hffM9" name="Page-1">
     <mxGraphModel dx="1006" dy="677" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -50,7 +50,7 @@
         <mxCell id="94rV8oXowhxHJuVNh93p-40" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="94rV8oXowhxHJuVNh93p-1" target="UEzdxqP7-3Au7_6uFxmp-9">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="94rV8oXowhxHJuVNh93p-1" value="Website live updates via a WebSocket." style="whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;rounded=1;" vertex="1" parent="1">
+        <mxCell id="94rV8oXowhxHJuVNh93p-1" value="Website live updates score via a WebSocket." style="whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;rounded=1;" vertex="1" parent="1">
           <mxGeometry x="50" y="330" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="94rV8oXowhxHJuVNh93p-5" value="User - Web" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=#82b366;fillColor=#d5e8d4;" vertex="1" parent="1">
@@ -88,7 +88,7 @@
         <mxCell id="94rV8oXowhxHJuVNh93p-16" value="" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.annotation_2;align=left;labelPosition=right;pointerEvents=1;rotation=90;" vertex="1" parent="1">
           <mxGeometry x="610" y="380" width="50" height="100" as="geometry" />
         </mxCell>
-        <mxCell id="94rV8oXowhxHJuVNh93p-17" value="Website live updates via a WebSocket." style="whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;rounded=1;" vertex="1" parent="1">
+        <mxCell id="94rV8oXowhxHJuVNh93p-17" value="Website live updates score via a WebSocket." style="whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;rounded=1;" vertex="1" parent="1">
           <mxGeometry x="390" y="510" width="120" height="62" as="geometry" />
         </mxCell>
         <mxCell id="94rV8oXowhxHJuVNh93p-18" value="User is subscribed to that sport" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
