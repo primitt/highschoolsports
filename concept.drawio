@@ -1,9 +1,12 @@
-<mxfile host="app.diagrams.net" modified="2022-09-21T17:05:34.209Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36" etag="Bd-v42W5t_hPKaefWzo1" version="20.3.3" type="github">
+<mxfile host="app.diagrams.net" modified="2022-09-21T17:32:46.123Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36" etag="DStXyGKmKfGojXHVQ82S" version="20.3.3" type="github">
   <diagram id="ZoijWgZR32y4va5hffM9" name="Page-1">
     <mxGraphModel dx="1006" dy="677" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="94rV8oXowhxHJuVNh93p-21" value="" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.annotation_2;align=left;labelPosition=right;pointerEvents=1;rotation=90;" vertex="1" parent="1">
+          <mxGeometry x="545" y="290" width="50" height="100" as="geometry" />
+        </mxCell>
         <mxCell id="94rV8oXowhxHJuVNh93p-13" value="" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.annotation_2;align=left;labelPosition=right;pointerEvents=1;rotation=90;" vertex="1" parent="1">
           <mxGeometry x="235" y="360" width="50" height="100" as="geometry" />
         </mxCell>
@@ -22,9 +25,14 @@
         <mxCell id="UEzdxqP7-3Au7_6uFxmp-9" value="Admin edits an existing game&#39;s score/settings" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
           <mxGeometry x="120" y="230" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="94rV8oXowhxHJuVNh93p-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="UEzdxqP7-3Au7_6uFxmp-10">
+        <mxCell id="94rV8oXowhxHJuVNh93p-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.227;entryY=0.52;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="UEzdxqP7-3Au7_6uFxmp-10" target="94rV8oXowhxHJuVNh93p-21">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="560" y="320" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="570" y="260" />
+              <mxPoint x="570" y="320" />
+              <mxPoint x="568" y="320" />
+            </Array>
           </mxGeometry>
         </mxCell>
         <mxCell id="UEzdxqP7-3Au7_6uFxmp-10" value="Admin Creates a new game" style="whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
@@ -39,6 +47,9 @@
         <mxCell id="UEzdxqP7-3Au7_6uFxmp-18" value="Key:" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=15;" parent="1" vertex="1">
           <mxGeometry width="50" height="30" as="geometry" />
         </mxCell>
+        <mxCell id="94rV8oXowhxHJuVNh93p-40" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="94rV8oXowhxHJuVNh93p-1" target="UEzdxqP7-3Au7_6uFxmp-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
         <mxCell id="94rV8oXowhxHJuVNh93p-1" value="Website live updates via a WebSocket." style="whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;rounded=1;" vertex="1" parent="1">
           <mxGeometry x="50" y="330" width="120" height="60" as="geometry" />
         </mxCell>
@@ -51,11 +62,79 @@
         <mxCell id="94rV8oXowhxHJuVNh93p-12" value="User is subscribed to that sport" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
           <mxGeometry x="200" y="330" width="120" height="60" as="geometry" />
         </mxCell>
+        <mxCell id="94rV8oXowhxHJuVNh93p-38" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="94rV8oXowhxHJuVNh93p-14" target="UEzdxqP7-3Au7_6uFxmp-9">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="20" y="460" />
+              <mxPoint x="20" y="260" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
         <mxCell id="94rV8oXowhxHJuVNh93p-14" value="If app is closed: App will push a notification of the new score&lt;sup&gt;2&lt;/sup&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
           <mxGeometry x="130" y="430" width="120" height="60" as="geometry" />
         </mxCell>
+        <mxCell id="94rV8oXowhxHJuVNh93p-41" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="94rV8oXowhxHJuVNh93p-15">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="20" y="460" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="345" y="510" />
+              <mxPoint x="60" y="510" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
         <mxCell id="94rV8oXowhxHJuVNh93p-15" value="If app is open: A websocket will update the score on the app.&amp;nbsp;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
           <mxGeometry x="285" y="430" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="94rV8oXowhxHJuVNh93p-16" value="" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.annotation_2;align=left;labelPosition=right;pointerEvents=1;rotation=90;" vertex="1" parent="1">
+          <mxGeometry x="610" y="380" width="50" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="94rV8oXowhxHJuVNh93p-17" value="Website live updates via a WebSocket." style="whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="425" y="350" width="120" height="62" as="geometry" />
+        </mxCell>
+        <mxCell id="94rV8oXowhxHJuVNh93p-18" value="User is subscribed to that sport" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="575" y="350" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="94rV8oXowhxHJuVNh93p-33" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="94rV8oXowhxHJuVNh93p-19" target="94rV8oXowhxHJuVNh93p-30">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="670" y="680" />
+              <mxPoint x="670" y="580" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="94rV8oXowhxHJuVNh93p-19" value="App will push a notification of the new score&lt;sup&gt;2&lt;/sup&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="530" y="650" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="94rV8oXowhxHJuVNh93p-20" value="If app is open: A websocket will update the score on the app.&amp;nbsp;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="670" y="450" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="94rV8oXowhxHJuVNh93p-31" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="94rV8oXowhxHJuVNh93p-29" target="94rV8oXowhxHJuVNh93p-30">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="94rV8oXowhxHJuVNh93p-29" value="If the app is closed:&lt;br&gt;App will sent a notification that the game is starting." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="530" y="450" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="94rV8oXowhxHJuVNh93p-32" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="94rV8oXowhxHJuVNh93p-30" target="94rV8oXowhxHJuVNh93p-19">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="94rV8oXowhxHJuVNh93p-34" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="94rV8oXowhxHJuVNh93p-30" target="94rV8oXowhxHJuVNh93p-17">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="520" y="580" />
+              <mxPoint x="520" y="520" />
+              <mxPoint x="410" y="520" />
+              <mxPoint x="410" y="381" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="94rV8oXowhxHJuVNh93p-35" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="94rV8oXowhxHJuVNh93p-30" target="94rV8oXowhxHJuVNh93p-20">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="94rV8oXowhxHJuVNh93p-30" value="Admin edits an existing game&#39;s score/settings" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="530" y="550" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="94rV8oXowhxHJuVNh93p-43" value="&lt;h1 style=&quot;font-size: 38px;&quot;&gt;&lt;br&gt;&lt;/h1&gt;&lt;h1&gt;&lt;span style=&quot;background-color: initial; font-size: 12px; font-weight: normal;&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&lt;/span&gt;&lt;br&gt;&lt;/h1&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="45" y="830" width="190" height="120" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
