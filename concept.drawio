@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-09-21T17:32:46.123Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36" etag="DStXyGKmKfGojXHVQ82S" version="20.3.3" type="github">
+<mxfile host="app.diagrams.net" modified="2022-09-21T17:48:01.881Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36" etag="rkQcI-UOBIv0Uvm7n2Gm" version="20.3.3" type="github">
   <diagram id="ZoijWgZR32y4va5hffM9" name="Page-1">
     <mxGraphModel dx="1006" dy="677" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -133,8 +133,14 @@
         <mxCell id="94rV8oXowhxHJuVNh93p-30" value="Admin edits an existing game&#39;s score/settings" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
           <mxGeometry x="530" y="550" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="94rV8oXowhxHJuVNh93p-43" value="&lt;h1 style=&quot;font-size: 38px;&quot;&gt;&lt;br&gt;&lt;/h1&gt;&lt;h1&gt;&lt;span style=&quot;background-color: initial; font-size: 12px; font-weight: normal;&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&lt;/span&gt;&lt;br&gt;&lt;/h1&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
-          <mxGeometry x="45" y="830" width="190" height="120" as="geometry" />
+        <mxCell id="94rV8oXowhxHJuVNh93p-50" value="Notation" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontSize=24;" vertex="1" parent="1">
+          <mxGeometry x="35" y="620" width="215" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="94rV8oXowhxHJuVNh93p-51" value="1. Mobile application has not been&#xa; developed yet" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontSize=12;" vertex="1" parent="94rV8oXowhxHJuVNh93p-50">
+          <mxGeometry y="30" width="215" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="94rV8oXowhxHJuVNh93p-52" value="2. In the future we will use apple&#39;s new&#xa;live score notification feature." style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontSize=12;" vertex="1" parent="94rV8oXowhxHJuVNh93p-50">
+          <mxGeometry y="60" width="215" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
