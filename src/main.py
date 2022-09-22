@@ -1,15 +1,10 @@
 from distutils.command.config import config
 from flask import Flask, render_template, request, redirect, url_for, flash
 
-from idom import component, html
-from idom.backend.flask import configure
 app = Flask(__name__)
-@component
+@app.route('/')
 def index():
-    return html.div(
-        html.h1("Hello World!"),
-    )
+    return render_template('index.html')
 
 if __name__ == "__main__":
-    configure(app, index)
     app.run(debug=True)
