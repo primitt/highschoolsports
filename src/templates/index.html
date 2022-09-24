@@ -5,8 +5,105 @@
     <title>Home | HS Sports</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/daisyui@2.31.0/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="./autocomplete.js"></script>
+    <style>
+        .color1{
+            background-color: #1D3461;
+        }
+        .color2{
+            background-color: #1F487E;
+        }
+        .color3{
+            background-color: #53A2BE;
+        }
+        .color4{
+            background-color: #B287A3;
+        }
+        .color5{
+            background-color: #C4B2BC;
+        }
+        .has-text-center{
+            text-align: center;
+        }
+        .sm{
+            font-size: 1.6rem !important;
+        }
+        .autocomplete {
+            /*the container must be positioned relative:*/
+            position: relative;
+          }
+        .autocomplete-items {
+        position: absolute;
+        border-bottom: none;
+        border-top: none;
+        z-index: 99;
+        /*position the autocomplete items to be the same width as the container:*/
+        top: 100%;
+        left: 0;
+        right: 0;
+        }
+        .autocomplete-items div {
+        padding: 10px;
+        cursor: pointer;
+        background-color: #1F487E;
+        }
+        .autocomplete-items div:hover {
+        /*when hovering an item:*/
+        background-color: #205191;
+        }
+        .autocomplete-active {
+        /*when navigating through the items using the arrow keys:*/
+        background-color: DodgerBlue !important;
+        color: #ffffff;
+        }
+    </style>
 </head>
+ <!-- make a header with daisy ui -->
+ <header class="shadow color1">
+    <div class="px-6 py-4 mx-auto">
+        <div class="flex items-center justify-between">
+            <div>
+                <a class="text-2xl font-bold text-gray-800 dark:text-white lg:text-3xl hover:text-gray-700 dark:hover:text-gray-300" href="#">HS Sports</a>
+            </div>
+            <div class="flex items-center">
+                <div class="hidden mx-4 text-gray-600 dark:text-gray-200 md:block">
+                    <a class="btn color2 btn-ghost text-gray-600 dark:text-gray-200 hover:text-gray-500 dark:hover:text-gray-300" href="#">Games</a>
+                    <a class="btn btn-ghost mx-4 text-gray-600 dark:text-gray-200 hover:text-gray-500 dark:hover:text-gray-300" href="#">My Feed</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
 <body>
-    
+    <!-- make a search form with a header "Search for your school" -->
+    <div class="has-text-center" style="margin-top:20px;">
+        <p class="text-3xl font-bold">High School Sports</p>
+        <p class="sm">See live scores for the sports avaliable at your school!</p>
+    </div>
+    <div class="container mx-auto">
+        <div class="flex flex-col items-center justify-center min-h-screen">
+            <div class="w-full max-w-md">
+                <h1 class="text-3xl font-bold text-center text-gray-700 dark:text-gray-200">Search for your school</h1>
+                <form autocomplete="off" class="mt-4" action="/search" method="POST" id="school">
+                    <div class="flex flex-col items-center justify-center">
+                        <div class="w-full max-w-md">
+                            <div class="relative">
+                                <div class="autocomplete">
+                                    <input id="inp" type="text" name="school" class="w-full px-4 py-2 text-gray-700 placeholder-gray-500 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:border-gray-600 dark:text-gray-300 dark:placeholder-gray-400 focus:border-blue-500 focus:outline-none focus:ring" placeholder="School Name">
+                                </div>
+                                    <button type="submit" class="absolute inset-y-0 right-0 flex items-center px-4 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-blue-600 border border-transparent rounded-r-md active:bg-blue-600 hover:bg-blue-700 focus:outline-none focus:shadow-outline-blue">
+                                    Search
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
 </body>
+<script>
+    var schools = ["Northwood High School"]
+    autocomplete(document.getElementById("inp"), schools);
+</script>
 </html> 
