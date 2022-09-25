@@ -3,6 +3,11 @@ import asyncio
 import json
 import pymongo
 import hashlib
+import dotenv
+import os
+
+dotenv.load_dotenv()
+client = pymongo.MongoClient(os.getenv("PYMONGO"))
 
 def hash_password(password):
     # Hash a password for storing.
@@ -15,7 +20,6 @@ def passwordValidate(password, hashedpassword):
         return False
 
 # setup mongodb
-client = pymongo.MongoClient("mongodb+srv://primitt:1016@primittdb.mvkeq.mongodb.net/")
 db = client["LS"]
 col = db["LS-SCORE"]
 schools = db["LS-SCHOOLS"]

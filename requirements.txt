@@ -1,0 +1,4 @@
+flask==2.0.1
+pymongo==4.2.0
+websockets==10.3
+python-dotenv==0.21.0

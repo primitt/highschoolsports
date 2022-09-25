@@ -3,6 +3,10 @@ from flask import Flask, render_template, request, redirect, url_for, flash, sen
 import pymongo 
 import os
 import hashlib
+import dotenv
+dotenv.load_dotenv()
+
+
 def hash_password(password):
     # Hash a password for storing.
     hashedpassword = hashlib.sha256(password.encode('utf-8')).hexdigest()
@@ -14,7 +18,7 @@ def passwordValidate(password, hashedpassword):
         return False
 
 # setup mongodb
-client = pymongo.MongoClient("mongodb+srv://primitt:1016@primittdb.mvkeq.mongodb.net/")
+client = pymongo.MongoClient(os.getenv("PYMONGO"))
 db = client["LS"]
 col = db["LS-SCORE"]
 schools = db["LS-SCHOOLS"]
