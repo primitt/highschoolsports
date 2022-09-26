@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="background">
 <head>
     <meta charset="utf-8">
     <title>Home | HS Sports</title>
@@ -7,6 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/daisyui@2.31.0/dist/full.css" rel="stylesheet" type="text/css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="./autocomplete.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.2/particles.min.js"></script>
     <style>
         .color1{
             background-color: #1D3461;
@@ -57,9 +58,16 @@
         background-color: DodgerBlue !important;
         color: #ffffff;
         }
+        .background {
+            background-image: linear-gradient( rgba(0, 0, 0, 0.6),  rgba(0, 0, 0, 0.6)),url("https://images.pexels.com/photos/1631677/pexels-photo-1631677.jpeg");
+            background-size: cover;
+            height: 100%;
+            overflow:hidden;
+          }
     </style>
 </head>
  <!-- make a header with daisy ui -->
+ {% if loggedin %}
  <header class="shadow color1">
     <div class="px-6 py-4 mx-auto">
         <div class="flex items-center justify-between">
@@ -75,35 +83,69 @@
         </div>
     </div>
 </header>
-<body>
-    <!-- make a search form with a header "Search for your school" -->
-    <div class="has-text-center" style="margin-top:20px;">
-        <p class="text-3xl font-bold">High School Sports</p>
-        <p class="sm">See live scores for the sports avaliable at your school!</p>
-    </div>
-    <div class="container mx-auto">
-        <div class="flex flex-col items-center justify-center min-h-screen">
-            <div class="w-full max-w-md">
-                <h1 class="text-3xl font-bold text-center text-gray-700 dark:text-gray-200">Search for your school</h1>
-                <form autocomplete="off" class="mt-4" action="/search" method="POST" id="school">
-                    <div class="flex flex-col items-center justify-center">
-                        <div class="w-full max-w-md">
-                            <div class="relative">
-                                <div class="autocomplete">
-                                    <input id="inp" type="text" name="school" class="w-full px-4 py-2 text-gray-700 placeholder-gray-500 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:border-gray-600 dark:text-gray-300 dark:placeholder-gray-400 focus:border-blue-500 focus:outline-none focus:ring" placeholder="School Name">
-                                </div>
-                                    <button type="submit" class="absolute inset-y-0 right-0 flex items-center px-4 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-blue-600 border border-transparent rounded-r-md active:bg-blue-600 hover:bg-blue-700 focus:outline-none focus:shadow-outline-blue">
-                                    Search
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </form>
+{% else %}
+<header class="shadow color1">
+    <div class="px-6 py-4 mx-auto">
+        <div class="flex items-center justify-between">
+            <div>
+                <a class="text-2xl font-bold text-gray-800 dark:text-white lg:text-3xl hover:text-gray-700 dark:hover:text-gray-300" href="#">HS Sports</a>
+            </div>
+            <div class="flex items-center">
+                <div class="hidden mx-4 text-gray-600 dark:text-gray-200 md:block">
+                    <a class="btn color2 btn-ghost text-gray-600 dark:text-gray-200 hover:text-gray-500 dark:hover:text-gray-300" href="/login">Login</a>
+                    <a class="btn btn-ghost mx-4 text-gray-600 dark:text-gray-200 hover:text-gray-500 dark:hover:text-gray-300" href="#">Sign Up</a>
+                </div>
             </div>
         </div>
+    </div>
+</header>
+{% endif %}
+<body class="">
+    <!-- <canvas class="background"></canvas> -->
+    <div class="h-96 grid grid-cols-2 justify-items-center content-center">
+        <div>
+            <h1 class="text-5xl font-bold">High School Sports</h1>
+            <h2 class="text-2xl font-bold">Find your favorite high school sports team</h2>
+        </div>
+        <div class="w-full max-w-hd">
+            <h1 class="text-3xl font-bold text-center text-gray-700 dark:text-gray-200">Search for your school</h1>
+            <!-- make school input -->
+            <form autocomplete="off" class="mt-4" action="/search" method="POST" id="school">
+                <div class="flex flex-col items-center justify-center">
+                    <div class="w-full max-w-md">
+                        <div class="relative">
+                            <div class="autocomplete">
+                                <input id="inp" type="text" name="school" class="w-full px-4 py-2 text-gray-700 placeholder-gray-500 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:border-gray-600 dark:text-gray-300 dark:placeholder-gray-400 focus:border-blue-500 focus:outline-none focus:ring" placeholder="School Name">
+                            </div>
+                                <button type="submit" class="absolute inset-y-0 right-0 flex items-center px-4 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-blue-600 border border-transparent rounded-r-md active:bg-blue-600 hover:bg-blue-700 focus:outline-none focus:shadow-outline-blue">
+                                Search
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
 </body>
 <script>
-    var schools = ["Northwood High School"]
+    var schools = []
+    // get ajax request 
+    $.ajax({
+        url: "/regschools",
+        type: "GET",
+        success: function(data){
+            for (var i = 0; i < data["data"].length; i++){
+                schools.push(data.data[i])
+            }
+        }
+    })
+    console.log(schools)
     autocomplete(document.getElementById("inp"), schools);
+    window.onload = function() {
+        Particles.init({
+          selector: '.background',
+          color: '#DA0463'
+        });
+    };
 </script>
 </html> 

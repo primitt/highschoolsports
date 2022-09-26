@@ -25,6 +25,7 @@ col = db["LS-SCORE"]
 schools = db["LS-SCHOOLS"]
 accounts = db["LS-ACCOUNTS"]
 async def loop(websocket):
+    # TODO: Add way way more commands and such
     cmd = await websocket.recv()
     command = cmd.split(":")
     #try:
@@ -62,3 +63,5 @@ async def main():
         print("Started Websocket Server")
         await asyncio.Future()  # run forever
 asyncio.run(main())
+
+# 

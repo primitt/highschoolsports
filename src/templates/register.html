@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Home | HS Sports</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.31.0/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="./autocomplete.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.2/particles.min.js"></script>
+    <style>
+        .color1{
+            background-color: #1D3461;
+        }
+        .color2{
+            background-color: #1F487E;
+        }
+        .color3{
+            background-color: #53A2BE;
+        }
+        .color4{
+            background-color: #B287A3;
+        }
+        .color5{
+            background-color: #C4B2BC;
+        }
+        .has-text-center{
+            text-align: center;
+        }
+        .sm{
+            font-size: 1.6rem !important;
+        }
+        .autocomplete {
+            /*the container must be positioned relative:*/
+            position: relative;
+          }
+        .autocomplete-items {
+        position: absolute;
+        border-bottom: none;
+        border-top: none;
+        z-index: 99;
+        /*position the autocomplete items to be the same width as the container:*/
+        top: 100%;
+        left: 0;
+        right: 0;
+        }
+        .autocomplete-items div {
+        padding: 10px;
+        cursor: pointer;
+        background-color: #1F487E;
+        }
+        .autocomplete-items div:hover {
+        /*when hovering an item:*/
+        background-color: #205191;
+        }
+        .autocomplete-active {
+        /*when navigating through the items using the arrow keys:*/
+        background-color: DodgerBlue !important;
+        color: #ffffff;
+        }
+        .background {
+            background-image: linear-gradient( rgba(0, 0, 0, 0.3),  rgba(0, 0, 0, 0.3)),url("https://images.pexels.com/photos/1631677/pexels-photo-1631677.jpeg");
+            background-size: cover;
+            height: 100%;
+            overflow:hidden;
+          }
+    </style>
+</head>
+<!-- TODO: Add header -->
+<body>
+    <!-- make sign up page -->
+    <div class="background">
+        <div class="container mx-auto">
+            <div class="flex flex-col justify-center items-center h-screen">
+                <div class="w-1/2">
+                    <div class="bg-white rounded-lg shadow-lg p-10">
+                        <h1 class="text-3xl font-bold mb-10 text-center">Sign Up</h1>
+                        <form action="/register" method="POST">
+                            <div class="mb-6">
+                                <label for="username" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Username</label>
+                                <input type="text" name="username" id="username" placeholder="Username" autocomplete="username" class="block w-full px-4 py-3 rounded-lg bg-gray-200 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0" required>
+                            </div>
+                            <div class="mb-6">
+                                <label for="email" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Email Address</label>
+                                <input type="email" name="email" id="email" placeholder="Email Address" autocomplete="email" class="block w-full px-4 py-3 rounded-lg bg-gray-200 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0" required>
+                            </div>
+                            <div class="mb-6">
+                                <label for="password" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Password</label>
+                                <input type="password" name="password" id="password" placeholder="Password" autocomplete="new-password" class="block w-full px-4 py-3 rounded-lg bg-gray-200 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0" required>
+                            </div>
+                            <div class="mb-6">
+                                <label for="password2" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Confirm Password</label>
+                                <input type="password" name="password2" id="password2" placeholder="Confirm Password" autocomplete="new-password" class="block w-full px-4 py-3 rounded-lg bg-gray-200 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0" required>
+                            </div>
+                            <!-- TODO: Make submit button -->
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

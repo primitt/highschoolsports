@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Home | HS Sports</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.31.0/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="./autocomplete.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.2/particles.min.js"></script>
+    <style>
+        .color1{
+            background-color: #1D3461;
+        }
+        .color2{
+            background-color: #1F487E;
+        }
+        .color3{
+            background-color: #53A2BE;
+        }
+        .color4{
+            background-color: #B287A3;
+        }
+        .color5{
+            background-color: #C4B2BC;
+        }
+        .has-text-center{
+            text-align: center;
+        }
+        .sm{
+            font-size: 1.6rem !important;
+        }
+        .autocomplete {
+            /*the container must be positioned relative:*/
+            position: relative;
+          }
+        .autocomplete-items {
+        position: absolute;
+        border-bottom: none;
+        border-top: none;
+        z-index: 99;
+        /*position the autocomplete items to be the same width as the container:*/
+        top: 100%;
+        left: 0;
+        right: 0;
+        }
+        .autocomplete-items div {
+        padding: 10px;
+        cursor: pointer;
+        background-color: #1F487E;
+        }
+        .autocomplete-items div:hover {
+        /*when hovering an item:*/
+        background-color: #205191;
+        }
+        .autocomplete-active {
+        /*when navigating through the items using the arrow keys:*/
+        background-color: DodgerBlue !important;
+        color: #ffffff;
+        }
+        .background {
+            background-image: linear-gradient( rgba(0, 0, 0, 0.3),  rgba(0, 0, 0, 0.3)),url("https://images.pexels.com/photos/1631677/pexels-photo-1631677.jpeg");
+            background-size: cover; /* TODO: Make a better background image? */
+            height: 100%;
+            overflow:hidden;
+          }
+    </style>
+</head>
+<header class="color1">
+    <div class="px-6 py-4 mx-auto">
+        <div class="flex items-center justify-between">
+            <div>
+                <a class="text-2xl font-bold text-gray-800 dark:text-white lg:text-3xl hover:text-gray-700 dark:hover:text-gray-300" href="/">< Back</a>
+            </div>
+            <!-- TODO: Make a functional header -->
+        </div>
+    </div>
+</header>
+<body>
+    <!-- make a box to login -->
+    <div class="background">
+        <div class="flex flex-col items-center justify-center min-h-screen py-12 sm:px-6 lg:px-8">
+            <h1 class="text-5xl font-bold text-white">Login to access "Your Feed", follow sports and schools!</h1><br>
+            <div class="w-full max-w-md px-4 py-8 bg-white border-2 border-gray-300 rounded-lg shadow-md sm:px-10">
+                <div class="mt-4">
+                    <h2 class="mt-6 text-3xl font-extrabold text-center text-gray-900">Login</h2>
+                    <form class="mt-8 space-y-6" action="/login" method="POST">
+                        <input type="hidden" name="remember" value="true">
+                        <div class="rounded-md shadow-sm -space-y-px">
+                            <div>
+                                <label for="email-address" class="sr-only">Email address</label>
+                                <input id="email-address" name="username" autocomplete="email" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Email Address or Username">
+                            </div>
+                            <div>
+                                <label for="password" class="sr-only">Password</label>
+                                <input id="password" name="password" type="password" autocomplete="current-password" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Password">
+                            </div><br>
+                            <div>
+                                <!-- create submit button -->
+                                <button type="submit" class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                    <span class="absolute left-0 inset-y-0 flex items-center pl-3">
+                                        <!-- Heroicon name: solid/lock-closed -->
+                                    </span>
+                                    Login
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <a href="/signup" class="block text-sm text-indigo-600">
+                                    Sign Up
+                                </a>
+                            </div>
+                            <div class="text-sm">
+                                <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500">
+                                    Forgot your password?
+                                </a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% if error %}
+    <div class="toast">
+        <div class="alert alert-danger">
+          <div>
+            <span>{{error}}</span> 
+            <!-- FIXME: Make this a different color -->
+          </div>
+        </div>
+    </div>
+    {% endif %}
+</body>
+</html>
