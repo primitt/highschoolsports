@@ -127,3 +127,6 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+/mongo-cxx-driver-r3.6.7
+/mongo-cxx-driver-r3.6.7.tar.gz
