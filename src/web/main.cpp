@@ -56,3 +56,4 @@ int main(){
     });
     app.port(8080).multithreaded().run();
 }
+//FIXME: Segmentation fault after 5 clients connect, find a way to fix this

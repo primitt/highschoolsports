@@ -157,7 +157,6 @@ def adminlogin():
 
 # TODO: Make "verified" email a thing
 # TODO: Make a system to add score and such
-
 # TODO: Make admin panel
 @app.route('/admin')
 def admin():
