@@ -1,0 +1,12 @@
+<script>
+    var ws = new WebSocket("ws://localhost:8080/");
+    ws.onopen = function() {
+        setInterval(function() {
+            console.log("Sending message");
+            ws.send("1/GETSCORE");
+        }, 1000);
+    };
+    ws.onmessage = function(event) {
+        console.log(event.data);
+    };
+</script>
