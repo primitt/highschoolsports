@@ -93,7 +93,7 @@
             <div class="flex items-center">
                 <div class="hidden mx-4 text-gray-600 dark:text-gray-200 md:block">
                     <a class="btn color2 btn-ghost text-gray-600 dark:text-gray-200 hover:text-gray-500 dark:hover:text-gray-300" href="/login">Login</a>
-                    <a class="btn btn-ghost mx-4 text-gray-600 dark:text-gray-200 hover:text-gray-500 dark:hover:text-gray-300" href="#">Sign Up</a>
+                    <a class="btn btn-ghost mx-4 text-gray-600 dark:text-gray-200 hover:text-gray-500 dark:hover:text-gray-300" href="/signup">Sign Up</a>
                 </div>
             </div>
         </div>
@@ -126,6 +126,26 @@
             </form>
         </div>
     </div>
+    {% if request.args.get("message") %}
+        {% if request.args.get("success") == "true" %}
+        <div class="toast">
+            <div class="alert alert-success">
+              <div>
+                <span>{{request.args.get("message")}}</span>
+              </div>
+            </div>
+        </div>
+        {% else %}
+        <div class="toast">
+            <div class="alert alert-danger">
+              <div>
+                <span>{{request.args.get("message")}}</span>
+              </div>
+            </div>
+        </div>
+        {% endif %}
+    {% endif %}
+
 </body>
 <script>
     var schools = []

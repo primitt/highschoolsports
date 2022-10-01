@@ -66,7 +66,16 @@
           }
     </style>
 </head>
-<!-- TODO: Add header -->
+<header class="color1">
+    <div class="px-6 py-4 mx-auto">
+        <div class="flex items-center justify-between">
+            <div>
+                <a class="text-2xl font-bold text-gray-800 dark:text-white lg:text-3xl hover:text-gray-700 dark:hover:text-gray-300" href="/">< Back</a>
+            </div>
+            <!-- TODO: Make a functional header -->
+        </div>
+    </div>
+</header>
 <body>
     <!-- make sign up page -->
     <div class="background">
@@ -75,10 +84,12 @@
                 <div class="w-1/2">
                     <div class="bg-white rounded-lg shadow-lg p-10">
                         <h1 class="text-3xl font-bold mb-10 text-center">Sign Up</h1>
-                        <form action="/register" method="POST">
+                        <form action="/signup" method="POST">
                             <div class="mb-6">
                                 <label for="username" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Username</label>
                                 <input type="text" name="username" id="username" placeholder="Username" autocomplete="username" class="block w-full px-4 py-3 rounded-lg bg-gray-200 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0" required>
+                                <!-- make a checkmark icon -->
+                                <div id="usernameCheck" class=""></div>
                             </div>
                             <div class="mb-6">
                                 <label for="email" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Email Address</label>
@@ -93,12 +104,40 @@
                                 <input type="password" name="password2" id="password2" placeholder="Confirm Password" autocomplete="new-password" class="block w-full px-4 py-3 rounded-lg bg-gray-200 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0" required>
                             </div>
                             <!-- TODO: Make submit button -->
+                            <button id="sub" type="submit" class="disabled:opacity-75 w-full px-4 py-3 rounded-lg bg-gray-800 text-white font-medium tracking-wide hover:bg-gray-700">Sign Up</button>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
+    {% if error %}
+    <div class="toast">
+        <div class="alert alert-danger">
+          <div>
+            <span>{{error}}</span>
+          </div>
+        </div>
+    </div>
+    {% endif %}
 </body>
+<script>
+    $("#username").change(function(){
+        var username = $("#username").val();
+        $.ajax({
+            url: "/api/checkusername?username=" + username,
+            type: "GET",
+            success: function(data){
+                console.log(data);
+                if(data.status == "available"){
+                    $("#usernameCheck").text("Avaliable").css("color", "#48bb78");
+                    $("#sub").prop("disabled", false).prop("title", "");
+                }else{
+                    $("#usernameCheck").text("Not Avaliable").css("color", "#f56565");
+                    $("#sub").prop("disabled", true).prop("title", "Username is already taken, please choose another one");
+                }
+            }
+        });
+    });
+</script>
 </html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Home | HS Sports</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.31.0/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="./autocomplete.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.2/particles.min.js"></script>
+    <style>
+        .color1{
+            background-color: #1D3461;
+        }
+        .color2{
+            background-color: #1F487E;
+        }
+        .color3{
+            background-color: #53A2BE;
+        }
+        .color4{
+            background-color: #B287A3;
+        }
+        .color5{
+            background-color: #C4B2BC;
+        }
+        .has-text-center{
+            text-align: center;
+        }
+        .sm{
+            font-size: 1.6rem !important;
+        }
+        .autocomplete {
+            /*the container must be positioned relative:*/
+            position: relative;
+          }
+        .has-text-center{
+            text-align: center;
+        }
+        .autocomplete-items {
+        position: absolute;
+        border-bottom: none;
+        border-top: none;
+        z-index: 99;
+        /*position the autocomplete items to be the same width as the container:*/
+        top: 100%;
+        left: 0;
+        right: 0;
+        }
+        .autocomplete-items div {
+        padding: 10px;
+        cursor: pointer;
+        background-color: #1F487E;
+        }
+        .autocomplete-items div:hover {
+        /*when hovering an item:*/
+        background-color: #205191;
+        }
+        .autocomplete-active {
+        /*when navigating through the items using the arrow keys:*/
+        background-color: DodgerBlue !important;
+        color: #ffffff;
+        }
+        .background {
+            background-color:#1D3461;
+            /*make the background color fill the entire page*/
+            min-height: 100vh;
+          }
+    </style>
+</head>
+<!-- make an admin panel with a button that says new game -->
+<!-- <header class="color1">
+    <div class="px-6 py-4 mx-auto">
+        <div class="flex items-center justify-between">
+    TODO: Make a functional header 
+        </div>
+    </div>
+</header>
+ -->
+<body>
+    <div class="background">
+        <!-- make rounded button on the side that says "new button" -->
+        <div class="flex justify-end">
+            <!-- make rounded button -->
+            <a class="flex items-center justify-center h-12 w-40 m-4 text-white bg-blue-500 rounded-full shadow-lg hover:bg-blue-700 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                    <path d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                </svg>
+                New Game
+            </a>
+        </div>
+        <div class="has-text-center">
+            No games have been created...yet...
+        </div>
+    </div>
+</body>

@@ -1,10 +1,13 @@
 from distutils.command.config import config
-from flask import Flask, render_template, request, redirect, url_for, flash, send_from_directory
+from sre_constants import SUCCESS
+from flask import Flask, make_response, render_template, request, redirect, url_for, flash, send_from_directory
 import pymongo 
 import os
 import hashlib
 import dotenv
 import json
+import re
+import services
 dotenv.load_dotenv()
 
 
@@ -35,6 +38,8 @@ db = client["LS"]
 col = db["LS-SCORE"]
 schools = db["LS-SCHOOLS"]
 accounts = db["LS-ACCOUNTS"]
+admindb = db["LS-ADMIN"]
+#TODO: SESSIONDB = db["LS-SESSIONS"]
 #import idom
 app = Flask(__name__)
 @app.route('/')
@@ -66,6 +71,8 @@ def regschools():
 def login():
     #TODO: Check if already loggedin
     if request.method == 'POST':
+        if request.cookies.get("session"):
+            return redirect(url_for('index'))
         username = request.form['username']
         password = request.form['password']
         data = list(accounts.find({"username":username}))
@@ -73,34 +80,91 @@ def login():
             return render_template('login.html', error="Username Not Found")
         else:
             if passwordValidate(password, data[0]['password']):
-                return "Login Successful"
+                resp = make_response(redirect(url_for('index')))
+                resp.set_cookie('session', f"{username}/{password}")
+                return resp
             else:
                 return render_template('login.html', error="Invalid Password")
     else:
+        if request.cookies.get("session"):
+            return redirect(url_for('index'))
         return render_template('login.html')
 @app.route('/signup', methods=['GET', 'POST'])
 def register():
     if request.method == 'POST':
-        #TODO: Check if username is taken
-        #TODO: Check is email is valid
-        #TODO: Check if already registered for both email and username
-        #TODO: Check if already loggedin
+        if request.cookies.get("session"):
+            return redirect(url_for('index'))
         username = request.form['username']
         password = request.form['password']
         data = list(accounts.find({"username":username}))
         if data == []:
-            accounts.insert_one({"username":username, "password":hash_password(password)})
-            return "Account Created"
+            is_already_registered = list(accounts.find({"email":request.form['email']}))
+            if is_already_registered != []:
+                return render_template('register.html', error="Email already registered")
+            if password == request.form['password2']:
+                if len(password) > 6:
+                    regex = re.compile('[A-z0-9!@#$%^&*]')
+                    if regex.search(password):
+                        if regex.search(username):
+                            if services.services.banned_words(username=username):
+                                return render_template('signup.html', error="Username contains banned words")
+                            accounts.insert_one({"username":username, "password":hash_password(password), "email":request.form['email']})
+                            resp = make_response(redirect(url_for('index', message="Welcome " + username, success="true")))
+                            resp.set_cookie("session", username + "/" + hash_password(password)) #TODO: Make this a session
+                            return resp
+                        else:
+                            return render_template('register.html', error="Username contains invalid characters. Only letters, numbers, and !@#$%^&* are allowed")
+                    else:
+                        return render_template('register.html', error="Password contains illegal characters. Only A-z, 0-9, and !@#$%^&* are allowed")
+                else:
+                    return render_template('register.html', error="Password is too short. Password must be at least 8 characters long")
+            else:
+                return render_template('register.html', error="Passwords do not match")
         else:
-            return render_template('register.html', error="Username Already Exists")
+            return render_template('register.html', error="Username is already taken")
     else:
+        if request.cookies.get("session"):
+            return redirect(url_for('index'))
         return render_template('register.html')
+@app.route('/api/checkusername', methods=['GET'])
+def checkusername():
+    if request.method == 'GET':
+        username = request.args.get('username')
+        data = list(accounts.find({"username":username}))
+        if data == []:
+            return {"status":"available"}
+        else:
+            return {"status":"taken"}
+
 # TODO: Make school sign up page
-# TODO: Make user register page functional
+@app.route('/admin/login', methods=['GET', 'POST'])
+def adminlogin():
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+        data = list(admindb.find({"username":username}))
+        if data == []:
+            return render_template('adminlogin.html', error="Username Not Found")
+        else:
+            if passwordValidate(password, data[0]['password']):
+                resp = make_response(redirect(url_for('admin')))
+                resp.set_cookie("adminsession", username + "/" + hash_password(password)) #TODO: Make this a session
+                return resp
+            else:
+                return render_template('adminlogin.html', error="Invalid Password")
+    else:
+        return render_template('adminlogin.html')
+
 # TODO: Make "verified" email a thing
 # TODO: Make a system to add score and such
 
 # TODO: Make admin panel
+@app.route('/admin')
+def admin():
+    if request.cookies.get("adminsession"):
+        return render_template('admin.html')
+    else:
+        return redirect(url_for('index'))
 @app.route('/<string:page_name>')
 def sendfile(page_name):
     return send_from_directory('static', page_name)
