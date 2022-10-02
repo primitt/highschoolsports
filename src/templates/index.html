@@ -11,28 +11,36 @@
     <style>
         .color1{
             background-color: #1D3461;
+            color:white !important;
         }
         .color2{
             background-color: #1F487E;
+            color:white !important;
         }
         .color3{
             background-color: #53A2BE;
+            color:white !important;
         }
         .color4{
             background-color: #B287A3;
+            color:white !important;
         }
         .color5{
             background-color: #C4B2BC;
+            color:white !important;
         }
         .has-text-center{
             text-align: center;
+            color:white !important;
         }
         .sm{
             font-size: 1.6rem !important;
+            color:white !important;
         }
         .autocomplete {
             /*the container must be positioned relative:*/
             position: relative;
+            color:white !important;
           }
         .autocomplete-items {
         position: absolute;
@@ -43,32 +51,37 @@
         top: 100%;
         left: 0;
         right: 0;
+        color:white !important;
         }
         .autocomplete-items div {
         padding: 10px;
         cursor: pointer;
         background-color: #1F487E;
+        color:white !important;
         }
         .autocomplete-items div:hover {
         /*when hovering an item:*/
         background-color: #205191;
+        color:white !important;
         }
         .autocomplete-active {
         /*when navigating through the items using the arrow keys:*/
         background-color: DodgerBlue !important;
         color: #ffffff;
+        color:white !important;
         }
         .background {
             background-image: linear-gradient( rgba(0, 0, 0, 0.6),  rgba(0, 0, 0, 0.6)),url("https://images.pexels.com/photos/1631677/pexels-photo-1631677.jpeg");
             background-size: cover;
             height: 100%;
             overflow:hidden;
+            color:white; 
           }
     </style>
 </head>
  <!-- make a header with daisy ui -->
  {% if loggedin %}
- <header class="shadow color1">
+ <header class="shadow color1" style="color:white !important;">
     <div class="px-6 py-4 mx-auto">
         <div class="flex items-center justify-between">
             <div>
@@ -84,16 +97,16 @@
     </div>
 </header>
 {% else %}
-<header class="shadow color1">
+<header class="shadow color1" style="color:white !important;">
     <div class="px-6 py-4 mx-auto">
         <div class="flex items-center justify-between">
             <div>
-                <a class="text-2xl font-bold text-gray-800 dark:text-white lg:text-3xl hover:text-gray-700 dark:hover:text-gray-300" href="#">HS Sports</a>
+                <a class="text-2xl font-bold text-white-800 dark:text-white lg:text-3xl hover:text-gray-700 dark:hover:text-gray-300" href="#">HS Sports</a>
             </div>
             <div class="flex items-center">
-                <div class="hidden mx-4 text-gray-600 dark:text-gray-200 md:block">
-                    <a class="btn color2 btn-ghost text-gray-600 dark:text-gray-200 hover:text-gray-500 dark:hover:text-gray-300" href="/login">Login</a>
-                    <a class="btn btn-ghost mx-4 text-gray-600 dark:text-gray-200 hover:text-gray-500 dark:hover:text-gray-300" href="/signup">Sign Up</a>
+                <div class="hidden mx-4 text-white-600 dark:text-white-200 md:block">
+                    <a class="btn color2 btn-ghost" href="/login">Login</a>
+                    <a class="btn btn-ghost mx-4 text-white" href="/signup">Sign Up</a>
                 </div>
             </div>
         </div>
@@ -108,7 +121,7 @@
             <h2 class="text-2xl font-bold">Find your favorite high school sports team</h2>
         </div>
         <div class="w-full max-w-hd">
-            <h1 class="text-3xl font-bold text-center text-gray-700 dark:text-gray-200">Search for your school</h1>
+            <h1 class="text-3xl font-bold text-center text-white-700 dark:text-white-200">Search for your school</h1>
             <!-- make school input -->
             <form autocomplete="off" class="mt-4" action="/search" method="POST" id="school">
                 <div class="flex flex-col items-center justify-center">

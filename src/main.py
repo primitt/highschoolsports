@@ -16,11 +16,13 @@ def hash_password(password):
     hashedpassword = hashlib.sha256(password.encode('utf-8')).hexdigest()
     return hashedpassword
 def passwordValidate(password, hashedpassword):
-    if hash_password(password) == hashedpassword:
+    print(password, hashedpassword)
+    if password == hashedpassword:
         return True
     else:
         return False
 def fastLogin(username, hpassword):
+    print(username, hpassword)
     try:
         data = list(accounts.find({"username":username}))
         if data == []:
@@ -45,7 +47,8 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     try:
-        loggedin = fastLogin(request.cookies.get("session").split("/"[0]), request.cookies.get("session").split("/")[1])
+        loggedin = fastLogin(request.cookies.get("session").split("/")[0], request.cookies.get("session").split("/")[1])
+        print(loggedin)
     except:
         loggedin = False
     return render_template('index.html', loggedin=loggedin)
@@ -81,7 +84,7 @@ def login():
         else:
             if passwordValidate(password, data[0]['password']):
                 resp = make_response(redirect(url_for('index')))
-                resp.set_cookie('session', f"{username}/{password}")
+                resp.set_cookie('session', f"{username}/{hash_password(password)}")
                 return resp
             else:
                 return render_template('login.html', error="Invalid Password")
@@ -110,7 +113,9 @@ def register():
                                 return render_template('signup.html', error="Username contains banned words")
                             accounts.insert_one({"username":username, "password":hash_password(password), "email":request.form['email']})
                             resp = make_response(redirect(url_for('index', message="Welcome " + username, success="true")))
-                            resp.set_cookie("session", username + "/" + hash_password(password)) #TODO: Make this a session
+                            hashed = hash_password(password)
+                            print(hashed)
+                            resp.set_cookie("session", username + "/" + hashed) #TODO: Make this a session
                             return resp
                         else:
                             return render_template('register.html', error="Username contains invalid characters. Only letters, numbers, and !@#$%^&* are allowed")
