@@ -66,6 +66,9 @@
             /*make the background color fill the entire page*/
             min-height: 100vh;
           }
+        .roundlight{
+            background-color: #1F487E;
+        }
     </style>
 </head>
 <!-- make an admin panel with a button that says new game -->
@@ -82,15 +85,63 @@
         <!-- make rounded button on the side that says "new button" -->
         <div class="flex justify-end">
             <!-- make rounded button -->
-            <a class="flex items-center justify-center h-12 w-40 m-4 text-white bg-blue-500 rounded-full shadow-lg hover:bg-blue-700 focus:outline-none">
+            <a href="/admin/creategame" class="flex items-center justify-center h-12 w-40 m-4 text-white bg-blue-500 rounded-full shadow-lg hover:bg-blue-700 focus:outline-none">
                 <svg class="w-6 h-6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
                     <path d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
                 </svg>
                 New Game
             </a>
         </div>
+        {% if games == "none" %}
         <div class="has-text-center">
-            No games have been created...yet...
+            <h1 class="text-4xl text-white">No games here yet... go ahead and create one</h1>
         </div>
+        {% else %}
+            {% for game in games %}
+            <div class="flex justify-center">
+                <div class="card w-2/3 roundlight shadow-xl">
+                    <div class="card-title" style="margin-top:20px; margin-left:35px;">
+                        <h1 class="text-4xl text-center">{{game["gamename"]}}</h1>
+                    </div>
+                    <div class="grid gap-4 grid-cols-3">
+                        <div>
+                            <div class="card-body">
+                                <div class="time">
+                                    <p class="text-sm text-bold">Time: {{game["time"]}}</p>
+                                </div>
+                                <div class="date">
+                                    <p class="text-sm">Date: {{game["date"]}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="card-body">
+                                <p class="text-sm text-bold">{{game["home"]}} v {{game["opponent"]}}</p>
+                                <h1 class="text-5xl text-white" style="margin-left:20px;">{{game["score"]["home"]}} vs. {{game["score"]["away"]}}</h1>
+                            </div>
+                        </div>
+                        <div>
+                            <!-- make a tools sidebar -->
+                            <div class="flex justify-end">
+                                <div class="flex flex-col">
+                                    <a href="/admin/editgame/{{game["gamename"]}}" class="flex items-center justify-center h-12 w-40 m-4 text-white bg-blue-500 rounded-full shadow-lg hover:bg-blue-700 focus:outline-none">
+                                        <svg class="w-6 h-6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                                        </svg>
+                                        Edit
+                                    </a>
+                                    <a href="/admin/deletegame/{{game["gamename"]}}" class="flex items-center justify-center h-12 w-40 m-4 text-white bg-red-500 rounded-full shadow-lg hover:bg-red-700 focus:outline-none">
+                                        <svg class="w-6 h-6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path d="M6 18L18 6M6 6l12 12"></path>
+                                        </svg>
+                                        Delete
+                                    </a>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        {% endif %}
     </div>
 </body>

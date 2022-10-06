@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Home | HS Sports</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.31.0/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="./autocomplete.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.2/particles.min.js"></script>
+    <style>
+        .color1{
+            background-color: #1D3461;
+        }
+        .color2{
+            background-color: #1F487E;
+        }
+        .color3{
+            background-color: #53A2BE;
+        }
+        .color4{
+            background-color: #B287A3;
+        }
+        .color5{
+            background-color: #C4B2BC;
+        }
+        .has-text-center{
+            text-align: center;
+        }
+        .sm{
+            font-size: 1.6rem !important;
+        }
+        .autocomplete {
+            /*the container must be positioned relative:*/
+            position: relative;
+          }
+        .has-text-center{
+            text-align: center;
+        }
+        .autocomplete-items {
+        position: absolute;
+        border-bottom: none;
+        border-top: none;
+        z-index: 99;
+        /*position the autocomplete items to be the same width as the container:*/
+        top: 100%;
+        left: 0;
+        right: 0;
+        }
+        .autocomplete-items div {
+        padding: 10px;
+        cursor: pointer;
+        background-color: #1F487E;
+        }
+        .autocomplete-items div:hover {
+        /*when hovering an item:*/
+        background-color: #205191;
+        }
+        .autocomplete-active {
+        /*when navigating through the items using the arrow keys:*/
+        background-color: DodgerBlue !important;
+        color: #ffffff;
+        }
+        .background {
+            background-color:#1D3461;
+            /*make the background color fill the entire page*/
+            min-height: 100vh;
+          }
+        .container{
+            background-color: #1F487E;
+            border-radius: 10px;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body class="background">
+    <div class="flex justify-center">
+        <div class="container" style="margin-top:20px;">
+            <form action="/admin/creategame" method="POST">
+                <div class="flex justify-around">
+                    <div>
+                        <!-- make a large input with the background backgroud -->
+                        <div class="w-1/2">
+    
+                            <label class="block text-sm font-medium text-white" for="name">Game Name</label>
+                            <input class="w-full px-3 py-2 text-base text-gray-700 placeholder-gray-600 border w-48 rounded-lg focus:shadow-outline" type="text" name="name" id="name" placeholder="Name" required>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-white">Date</label>
+                        <input type="date" class="w-full px-3 py-2 text-base text-gray-700 placeholder-gray-600 border rounded-lg focus:shadow-outline" type="text" name="date" id="date" placeholder="Date" required>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-white">Time</label>
+                        <input type="time" class="w-full px-3 py-2 text-base text-gray-700 placeholder-gray-600 border rounded-lg focus:shadow-outline" type="text" name="time" id="time" placeholder="Time" required>
+                    </div>
+                </div>
+                <br>
+                <div class="flex justify-around">
+                    <div>
+                        <label class="block text-sm font-medium text-white">Location</label>
+                        <input class="w-full px-3 py-2 text-base text-gray-700 placeholder-gray-600 border rounded-lg focus:shadow-outline" type="text" name="location" id="location" placeholder="Location" required>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-white">Opponent</label>
+                        <input class="w-full px-3 py-2 text-base text-gray-700 placeholder-gray-600 border rounded-lg focus:shadow-outline" type="text" name="opponent" id="opponent" placeholder="Opponent" required>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-white">Sport</label>
+                        <select class="w-full px-3 py-2 text-base text-gray-700 w-40 placeholder-gray-600 border rounded-lg focus:shadow-outline" name="sport" id="sport" required>
+                            <option value="Football">Football</option>
+                            <!-- <option value="Basketball">Basketball</option>
+                            <option value="Baseball">Baseball</option>
+                            <option value="Soccer">Soccer</option>
+                            <option value="Volleyball">Volleyball</option>
+                            <option value="Softball">Softball</option>
+                            <option value="Lacrosse">Lacrosse</option>
+                            <option value="Field Hockey">Field Hockey</option>
+                            <option value="Wrestling">Wrestling</option>
+                            <option value="Golf">Golf</option>
+                            <option value="Tennis">Tennis</option>
+                            <option value="Track">Track</option>
+                            <option value="Cross Country">Cross Country</option>
+                            <option value="Swimming">Swimming</option>
+                            <option value="Cheerleading">Cheerleading</option>
+                            <option value="Dance">Dance</option>
+                            <option value="Gymnastics">Gymnastics</option>
+                            <option value="Bowling">Bowling</option>
+                            <option value="Badminton">Badminton</option>
+                            <option value="Squash">Squash</option>
+                            <option value="Rugby">Rugby</option> -->
+                        </select>
+                    </div>
+                </div> 
+                <br>
+                <div class="flex justify-center">
+                    <input type="submit" class="w-1/2 px-3 py-4 text-base font-medium text-white bg-blue-500 rounded-lg focus:outline-none focus:shadow-outline" value="Create Game">
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
