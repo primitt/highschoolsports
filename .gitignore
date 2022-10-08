@@ -128,8 +128,8 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-/mongo-cxx-driver-r3.6.7
-/mongo-cxx-driver-r3.6.7.tar.gz
 a.out
-boost_1_62_0
-boost_1_62_0.tar.gz
+.vscode
+.vscode/*
+node_modules/*
+node_modules

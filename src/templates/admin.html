@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <title>Home | HS Sports</title>
@@ -8,85 +9,115 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="./autocomplete.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.2/particles.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/duyplus/fontawesome-pro/css/all.min.css">
     <style>
-        .color1{
+        .color1 {
             background-color: #1D3461;
         }
-        .color2{
+
+        .color2 {
             background-color: #1F487E;
         }
-        .color3{
+
+        .color3 {
             background-color: #53A2BE;
         }
-        .color4{
+
+        .color4 {
             background-color: #B287A3;
         }
-        .color5{
+
+        .color5 {
             background-color: #C4B2BC;
         }
-        .has-text-center{
+
+        .has-text-center {
             text-align: center;
         }
-        .sm{
+
+        .sm {
             font-size: 1.6rem !important;
         }
+
         .autocomplete {
             /*the container must be positioned relative:*/
             position: relative;
-          }
-        .has-text-center{
+        }
+
+        .has-text-center {
             text-align: center;
         }
+
+        .centered {
+            position: absolute;
+            align-items: center;
+        }
+
         .autocomplete-items {
-        position: absolute;
-        border-bottom: none;
-        border-top: none;
-        z-index: 99;
-        /*position the autocomplete items to be the same width as the container:*/
-        top: 100%;
-        left: 0;
-        right: 0;
+            position: absolute;
+            border-bottom: none;
+            border-top: none;
+            z-index: 99;
+            /*position the autocomplete items to be the same width as the container:*/
+            top: 100%;
+            left: 0;
+            right: 0;
         }
+
         .autocomplete-items div {
-        padding: 10px;
-        cursor: pointer;
-        background-color: #1F487E;
+            padding: 10px;
+            cursor: pointer;
+            background-color: #1F487E;
         }
+
         .autocomplete-items div:hover {
-        /*when hovering an item:*/
-        background-color: #205191;
+            /*when hovering an item:*/
+            background-color: #205191;
         }
+
         .autocomplete-active {
-        /*when navigating through the items using the arrow keys:*/
-        background-color: DodgerBlue !important;
-        color: #ffffff;
+            /*when navigating through the items using the arrow keys:*/
+            background-color: DodgerBlue !important;
+            color: #ffffff;
         }
+
         .background {
-            background-color:#1D3461;
+            background-color: #1D3461;
             /*make the background color fill the entire page*/
             min-height: 100vh;
-          }
-        .roundlight{
+        }
+
+        .roundlight {
             background-color: #1F487E;
         }
     </style>
 </head>
-<!-- make an admin panel with a button that says new game -->
-<!-- <header class="color1">
-    <div class="px-6 py-4 mx-auto">
-        <div class="flex items-center justify-between">
-    TODO: Make a functional header 
+<header>
+    <!-- make a header similar to the one on the home page -->
+    <div class="bg-gray-800 text-white">
+        <div class="container mx-auto px-6 py-3">
+            <div class="flex items-center justify-between">
+                <div class="hidden w-full text-gray-600 md:flex md:items-center">
+                    <a href="https://www.hssports.org/" class="text-lg font-semibold">HS Sports</a>
+                    <div class="flex items-baseline ml-4">
+                        <a href="https://www.hssports.org/" class="mx-1 text-gray-300 hover:text-gray-100">Home</a>
+                        <a href="https://www.hssports.org/about" class="mx-1 text-gray-300 hover:text-gray-100">About</a>
+                        <a href="https://www.hssports.org/contact" class="mx-1 text-gray-300 hover:text-gray-100">Contact</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </header>
- -->
 <body>
     <div class="background">
         <!-- make rounded button on the side that says "new button" -->
         <div class="flex justify-end">
             <!-- make rounded button -->
-            <a href="/admin/creategame" class="flex items-center justify-center h-12 w-40 m-4 text-white bg-blue-500 rounded-full shadow-lg hover:bg-blue-700 focus:outline-none">
-                <svg class="w-6 h-6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+            <a href="/admin/creategame"
+                class="flex items-center justify-center h-12 w-40 m-4 text-white bg-blue-500 rounded-full shadow-lg hover:bg-blue-700 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    viewBox="0 0 24 24" stroke="currentColor">
                     <path d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
                 </svg>
                 New Game
@@ -97,51 +128,52 @@
             <h1 class="text-4xl text-white">No games here yet... go ahead and create one</h1>
         </div>
         {% else %}
-            {% for game in games %}
-            <div class="flex justify-center">
-                <div class="card w-2/3 roundlight shadow-xl">
-                    <div class="card-title" style="margin-top:20px; margin-left:35px;">
-                        <h1 class="text-4xl text-center">{{game["gamename"]}}</h1>
+        {% for game in games %}
+        <div class="flex justify-center">
+            <div class="card w-2/4 roundlight shadow-xl">
+                <div class="card-title" style="margin-top:20px; margin-left:35px;">
+                    <h1 class="text-4xl text-center">{{game["gamename"]}}</h1>
+                </div>
+                <div class="grid gap-4 grid-cols-3">
+                    <div>
+                        <div class="card-body">
+                            <div class="time">
+                                <p class="text-sm text-bold">Time: {{game["time"]}}</p>
+                            </div>
+                            <div class="date">
+                                <p class="text-sm">Date: {{game["date"]}}</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="grid gap-4 grid-cols-3">
-                        <div>
-                            <div class="card-body">
-                                <div class="time">
-                                    <p class="text-sm text-bold">Time: {{game["time"]}}</p>
-                                </div>
-                                <div class="date">
-                                    <p class="text-sm">Date: {{game["date"]}}</p>
-                                </div>
-                            </div>
+                    <div>
+                        <div class="card-body flex items-center" style="margin-left:10px;">
+                            <p class="text-sm text-bold has-text-centered">{{game["home"]}} v {{game["opponent"]}}</p>
+                            <h1 class="text-5xl text-white" style="margin-left:20px;">{{game["score"]["home"]}} vs.
+                                {{game["score"]["away"]}}</h1>
                         </div>
-                        <div>
-                            <div class="card-body">
-                                <p class="text-sm text-bold">{{game["home"]}} v {{game["opponent"]}}</p>
-                                <h1 class="text-5xl text-white" style="margin-left:20px;">{{game["score"]["home"]}} vs. {{game["score"]["away"]}}</h1>
+                    </div>
+                    <div class="card-actions justify-end">
+                        <!-- make 3 buttons with icons in the middle -->
+                        <div class="grid gap place-items-end">
+                            <div class="flex">
+                                <a href="/admin/gameid/{{game['gameid']}}"
+                                    class="flex items-center justify-center h-8 w-8 m-4 btn btn-outline btn-square">
+                                    <span><i class="fa-light fa-pen-to-square"></i></span>
+                                </a>
                             </div>
-                        </div>
-                        <div>
-                            <!-- make a tools sidebar -->
-                            <div class="flex justify-end">
-                                <div class="flex flex-col">
-                                    <a href="/admin/editgame/{{game["gamename"]}}" class="flex items-center justify-center h-12 w-40 m-4 text-white bg-blue-500 rounded-full shadow-lg hover:bg-blue-700 focus:outline-none">
-                                        <svg class="w-6 h-6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
-                                        </svg>
-                                        Edit
-                                    </a>
-                                    <a href="/admin/deletegame/{{game["gamename"]}}" class="flex items-center justify-center h-12 w-40 m-4 text-white bg-red-500 rounded-full shadow-lg hover:bg-red-700 focus:outline-none">
-                                        <svg class="w-6 h-6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path d="M6 18L18 6M6 6l12 12"></path>
-                                        </svg>
-                                        Delete
-                                    </a>
-                                </div>
+                            <div class="">
+                                <a
+                                    class="flex items-center justify-center h-8 w-8 m-4 btn btn-outline btn-square">
+                                    <span><i class="fa-solid fa-trash-can-xmark"></i></span>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            {% endfor %}
-        {% endif %}
+        </div>
+    </div>
+    {% endfor %}
+    {% endif %}
     </div>
 </body>
