@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Home | HS Sports</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.31.0/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="./autocomplete.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.2/particles.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/duyplus/fontawesome-pro/css/all.min.css">
+    <style>
+        .color1 {
+            background-color: #1D3461;
+        }
+
+        .color2 {
+            background-color: #1F487E;
+        }
+
+        .color3 {
+            background-color: #53A2BE;
+        }
+
+        .color4 {
+            background-color: #B287A3;
+        }
+
+        .color5 {
+            background-color: #C4B2BC;
+        }
+
+        .has-text-center {
+            text-align: center;
+        }
+
+        .sm {
+            font-size: 1.6rem !important;
+        }
+
+        .autocomplete {
+            /*the container must be positioned relative:*/
+            position: relative;
+        }
+
+        .has-text-center {
+            text-align: center;
+        }
+
+        .centered {
+            position: absolute;
+            align-items: center;
+        }
+
+        .autocomplete-items {
+            position: absolute;
+            border-bottom: none;
+            border-top: none;
+            z-index: 99;
+            /*position the autocomplete items to be the same width as the container:*/
+            top: 100%;
+            left: 0;
+            right: 0;
+        }
+
+        .autocomplete-items div {
+            padding: 10px;
+            cursor: pointer;
+            background-color: #1F487E;
+        }
+
+        .autocomplete-items div:hover {
+            /*when hovering an item:*/
+            background-color: #205191;
+        }
+
+        .autocomplete-active {
+            /*when navigating through the items using the arrow keys:*/
+            background-color: DodgerBlue !important;
+            color: #ffffff;
+        }
+
+        .background {
+            background-color: #1D3461;
+            /*make the background color fill the entire page*/
+            min-height: 100vh;
+        }
+
+        .roundlight {
+            background-color: #1F487E;
+        }
+        input[type=number]::-webkit-inner-spin-button, 
+        input[type=number]::-webkit-outer-spin-button { 
+            -webkit-appearance: none; 
+            margin: 0; 
+        }
+        input[type=number] {
+            -moz-appearance:textfield;
+        }
+    </style>
+</head>
+<header>
+    <!-- make a header similar to the one on the home page -->
+    <div class="bg-gray-800 text-white">
+        <div class="container mx-auto px-6 py-3">
+            <div class="flex items-center justify-between">
+                <div class="hidden w-full text-gray-600 md:flex md:items-center">
+                    <a href="https://www.hssports.org/" class="text-lg font-semibold">HS Sports</a>
+                    <div class="flex items-baseline ml-4">
+                        <a href="/" class="mx-1 text-gray-300 hover:text-gray-100">Home</a>
+                        <a href="/admin"
+                            class="mx-1 text-gray-300 hover:text-gray-100">Admin</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<body>
+    <div class="background">
+        <!-- make a large input box with a preset value of 0-->
+        <div class="">
+            <div class="grid grid-cols-2 h-48 place-items-center justify-end">
+                <div>
+                    <!-- make a plus button -->
+                    <button onclick="add1home()" class="bg-gray-800 text-white rounded-md w-96 p-4 m-4">
+                        <i class="fas fa-plus fa-2x"></i>
+                    </button><br>
+                    <input type="number" min="0" id="home" name="home" class="autocomplete bg-gray-800 place-items-center text-white rounded-md w-96 p-4 m-4 text-9xl" value="{{game['score']['home']}}" placeholder="Home Team">
+                    <br>
+                    <button onclick="sub1home()" class="bg-gray-800 text-white rounded-md w-96 p-4 m-4">
+                        <i class="fas fa-minus fa-2x"></i>
+                    </button>
+                </div>
+                <div>
+                    <button onclick="add1away()" class="bg-gray-800 text-white rounded-md w-96 p-4 m-4">
+                        <i class="fas fa-plus fa-2x"></i>
+                    </button><br>
+                    <input type="number" min="0" id="away" name="away" class="autocomplete bg-gray-800 place-items-center text-white rounded-md w-96 p-4 m-4 text-9xl" value="{{game['score']['away']}}" placeholder="Home Team">
+                    <br>
+                    <button onclick="sub1away()" class="bg-gray-800 text-white rounded-md w-96 p-4 m-4">
+                        <i class="fas fa-minus fa-2x"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    // make a function that adds 1 to the home team score
+    function add1home() {
+        var home = document.getElementById("home").value;
+        console.log(home);
+        if (home == ""){
+            home = 0;
+        }
+        else{
+            home = parseInt(home) + 1;
+            document.getElementById("home").value = home;
+        }
+    }
+    function sub1home() {
+        var home = document.getElementById("home").value;
+        if (home == 0) {
+            home = 0;
+        }
+        else{
+            home = parseInt(home) - 1;
+            document.getElementById("home").value = home;
+        }
+    }
+    function add1away() {
+        var away = document.getElementById("away").value;
+        if (away == ""){
+            away = 0;
+        }
+        else{
+            away = parseInt(away) + 1;
+            document.getElementById("away").value = away;
+        }
+    }
+    function sub1away() {
+        var away = document.getElementById("away").value;
+        if (away == 0) {
+            away = 0;
+        }
+        else{
+            away = parseInt(away) - 1;
+            document.getElementById("away").value = away;
+        }
+    }
+</script>

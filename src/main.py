@@ -241,7 +241,19 @@ def admin():
             return redirect(url_for('adminlogin'))
     else:
         return redirect(url_for('adminlogin'))
-
+@app.route('/admin/gameid/<int:id>')
+def gameid(id):
+    if request.cookies.get("adminsession"):
+        if adminFastLogin(request.cookies.get("adminsession").split("/")[0], request.cookies.get("adminsession").split("/")[1]):
+            # get game
+            game = list(col.find({"gameid":id}))
+            if game == []:
+                return redirect(url_for('admin'))
+            return render_template('edit.html', game=game[0])
+        else:
+            return redirect(url_for('adminlogin'))
+    else:
+        return redirect(url_for('adminlogin'))
 @app.route('/logout')
 def logout():
     resp = make_response(redirect(url_for('index')))
